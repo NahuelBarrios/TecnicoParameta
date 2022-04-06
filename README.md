@@ -1,0 +1,2 @@
+# TecnicoParametra
+Examen Técnico Parametra
