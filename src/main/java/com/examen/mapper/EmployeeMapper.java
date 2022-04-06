@@ -2,7 +2,9 @@ package com.examen.mapper;
 
 import com.examen.domain.Employee;
 import com.examen.dto.EmployeeCreationDto;
+import com.examen.dto.EmployeeInformation;
 import com.examen.repository.models.EmployeeModel;
+import java.util.Date;
 
 public class EmployeeMapper {
 
@@ -45,6 +47,15 @@ public class EmployeeMapper {
                 .post(employeeCreationDto.getPost())
                 .salary(employeeCreationDto.getSalary()).build();
         return employee;
+    }
+
+    public static EmployeeInformation mapDomainToInformation(Employee employee){
+        Date hoy= new Date();
+        EmployeeInformation employeeInformation = EmployeeInformation.builder()
+                .age(hoy.getYear() - employee.getBirthDate().getYear())
+                .antiquity(hoy.getYear() - employee.getStartDate().getYear())
+                .build();
+        return employeeInformation;
     }
 
 }

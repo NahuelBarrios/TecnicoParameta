@@ -1,8 +1,10 @@
 package com.examen.dto;
 
-import com.sun.istack.NotNull;
+
+import java.io.Serializable;
 import java.util.Date;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -10,7 +12,7 @@ import lombok.Data;
 @Data
 @Builder
 @AllArgsConstructor
-public class EmployeeCreationDto {
+public class EmployeeCreationDto implements Serializable {
     @NotNull
     @NotBlank
     private String names;

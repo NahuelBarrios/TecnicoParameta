@@ -1,13 +1,12 @@
 package com.examen.repository.models;
 
 import java.util.Date;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -23,15 +22,21 @@ public class EmployeeModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @Column(nullable = false)
     private String names;
+    @Column(nullable = false)
     private String lastNames;
+    @Column(nullable = false)
     private String typeDocument;
+    @Column(nullable = false)
     private String numberDocument;
-    @Temporal(TemporalType.DATE)
+    @Column(nullable = false)
     private Date birthDate;
-    @Temporal(TemporalType.DATE)
+    @Column(nullable = false)
     private Date startDate;
+    @Column(nullable = false)
     private String post;
+    @Column(nullable = false)
     private Double salary;
 
 }

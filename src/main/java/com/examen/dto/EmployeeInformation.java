@@ -9,6 +9,6 @@ import lombok.Data;
 @Builder
 @AllArgsConstructor
 public class EmployeeInformation {
-    private Date antiquity;
-    private Date age;
+    private Integer antiquity;
+    private Integer age;
 }
