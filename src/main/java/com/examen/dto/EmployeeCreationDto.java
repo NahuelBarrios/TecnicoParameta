@@ -1,8 +1,10 @@
 package com.examen.dto;
 
 import java.util.Date;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Past;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -24,12 +26,15 @@ public class EmployeeCreationDto {
     @NotBlank
     private String numberDocument;
     @NotNull
+    @Past
     private Date birthDate;
     @NotNull
+    @Past
     private Date startDate;
     @NotNull
     @NotBlank
     private String post;
     @NotNull
+    @Min(1)
     private Double salary;
 }
