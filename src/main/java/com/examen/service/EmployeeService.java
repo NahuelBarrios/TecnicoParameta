@@ -16,8 +16,8 @@ public class EmployeeService {
 
     @Transactional
     public Employee createEmployee(Employee employee){
-        EmployeeModel employeeModel = employeeRepository.save(EmployeeMapper.mapDomainToModel(employee));
-        return EmployeeMapper.mapModelToDomain(employeeModel);
+            EmployeeModel employeeModel = employeeRepository.save(EmployeeMapper.mapDomainToModel(employee));
+            return EmployeeMapper.mapModelToDomain(employeeModel);
     }
 
 }
