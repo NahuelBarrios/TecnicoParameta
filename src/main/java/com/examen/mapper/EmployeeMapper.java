@@ -2,8 +2,10 @@ package com.examen.mapper;
 
 import com.examen.domain.Employee;
 import com.examen.dto.EmployeeCreationDto;
-import com.examen.dto.EmployeeInformation;
+import com.examen.dto.EmployeeDto;
 import com.examen.repository.models.EmployeeModel;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class EmployeeMapper {
@@ -13,8 +15,8 @@ public class EmployeeMapper {
                 .id(employee.getId())
                 .names(employee.getNames())
                 .lastNames(employee.getLastNames())
-                .typeDocument(employee.getTypeDocument())
-                .numberDocument(employee.getNumberDocument())
+                .documentType(employee.getDocumentType())
+                .documentNumber(employee.getDocumentNumber())
                 .birthDate(employee.getBirthDate())
                 .startDate(employee.getStartDate())
                 .post(employee.getPost())
@@ -27,8 +29,8 @@ public class EmployeeMapper {
                 .id(employeeModel.getId())
                 .names(employeeModel.getNames())
                 .lastNames(employeeModel.getLastNames())
-                .typeDocument(employeeModel.getTypeDocument())
-                .numberDocument(employeeModel.getNumberDocument())
+                .documentType(employeeModel.getDocumentType())
+                .documentNumber(employeeModel.getDocumentNumber())
                 .birthDate(employeeModel.getBirthDate())
                 .startDate(employeeModel.getStartDate())
                 .post(employeeModel.getPost())
@@ -40,8 +42,8 @@ public class EmployeeMapper {
         Employee employee = Employee.builder()
                 .names(employeeCreationDto.getNames())
                 .lastNames(employeeCreationDto.getLastNames())
-                .typeDocument(employeeCreationDto.getTypeDocument())
-                .numberDocument(employeeCreationDto.getNumberDocument())
+                .documentType(employeeCreationDto.getDocumentType())
+                .documentNumber(employeeCreationDto.getDocumentNumber())
                 .birthDate(employeeCreationDto.getBirthDate())
                 .startDate(employeeCreationDto.getStartDate())
                 .post(employeeCreationDto.getPost())
@@ -49,13 +51,20 @@ public class EmployeeMapper {
         return employee;
     }
 
-    public static EmployeeInformation mapDomainToInformation(Employee employee){
+    public static EmployeeDto mapDomainToInformation(Employee employee){
         Date hoy= new Date();
-        EmployeeInformation employeeInformation = EmployeeInformation.builder()
-                .age(hoy.getYear() - employee.getBirthDate().getYear())
-                .antiquity(hoy.getYear() - employee.getStartDate().getYear())
-                .build();
-        return employeeInformation;
+        DateFormat ageFormat = new SimpleDateFormat("yyyy-MM-dd");
+        DateFormat antiquityFormat = new SimpleDateFormat("yyyy-MM");
+        EmployeeDto employeeDto = EmployeeDto.builder()
+                .names(employee.getNames())
+                .lastNames(employee.getLastNames())
+                .documentType(employee.getDocumentType())
+                .documentNumber(employee.getDocumentNumber())
+                .age(ageFormat.format( employee.getBirthDate().getTime() - hoy.getTime()))
+                .antiquity(antiquityFormat.format(hoy.getTime() - employee.getBirthDate().getTime()))
+                .post(employee.getPost())
+                .salary(employee.getSalary()).build();
+        return employeeDto;
     }
 
 }

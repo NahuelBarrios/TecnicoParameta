@@ -21,10 +21,10 @@ public class EmployeeCreationDto {
     private String lastNames;
     @NotNull
     @NotBlank
-    private String typeDocument;
+    private String documentType;
     @NotNull
     @NotBlank
-    private String numberDocument;
+    private String documentNumber;
     @NotNull
     @Past
     private Date birthDate;

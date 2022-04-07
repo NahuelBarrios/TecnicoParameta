@@ -1,19 +1,20 @@
-package com.examen.domain;
+package com.examen.dto;
 
-import java.util.Date;
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 
 @Data
 @Builder
-public class Employee {
-    private Long id;
+@AllArgsConstructor
+public class EmployeeDto {
     private String names;
     private String lastNames;
     private String documentType;
     private String documentNumber;
-    private Date birthDate;
-    private Date startDate;
+    private String antiquity;
+    private String age;
     private String post;
     private Double salary;
+
 }

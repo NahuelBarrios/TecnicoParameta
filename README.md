@@ -3,11 +3,11 @@ Examen Técnico Parameta
 
 ## Run Project
 
-mvn spring-boot:run (IntelliJ IDE)
+mvn spring-boot:run
 
 ## Build Project
 
-Ctrl + F9. Click derecho en la carpeta de proyecto, pinchar en la opcion build module.
+mvn clean install
 
 ## Base Datos
 

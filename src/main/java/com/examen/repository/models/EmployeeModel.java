@@ -27,9 +27,9 @@ public class EmployeeModel {
     @Column(nullable = false)
     private String lastNames;
     @Column(nullable = false)
-    private String typeDocument;
+    private String documentType;
     @Column(nullable = false)
-    private String numberDocument;
+    private String documentNumber;
     @Column(nullable = false)
     private Date birthDate;
     @Column(nullable = false)
