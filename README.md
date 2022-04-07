@@ -11,7 +11,7 @@ Ctrl + F9. Click derecho en la carpeta de proyecto, pinchar en la opcion build m
 
 ## Base Datos
 
-Crear una base de datos MySQL con el nombre parametra (CAMBIAR)
+Crear una base de datos MySQL con el nombre parameta
 
 ## Pruebas Con PostMan 
 
