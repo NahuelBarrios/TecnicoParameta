@@ -6,6 +6,11 @@ import com.examen.dto.EmployeeDto;
 import com.examen.repository.models.EmployeeModel;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.time.Duration;
+import java.time.LocalDate;
+import java.time.Period;
+import java.time.ZoneId;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
 
 public class EmployeeMapper {
@@ -52,19 +57,38 @@ public class EmployeeMapper {
     }
 
     public static EmployeeDto mapDomainToInformation(Employee employee){
-        Date hoy= new Date();
-        DateFormat ageFormat = new SimpleDateFormat("yyyy-MM-dd");
-        DateFormat antiquityFormat = new SimpleDateFormat("yyyy-MM");
         EmployeeDto employeeDto = EmployeeDto.builder()
                 .names(employee.getNames())
                 .lastNames(employee.getLastNames())
                 .documentType(employee.getDocumentType())
                 .documentNumber(employee.getDocumentNumber())
-                .age(ageFormat.format( employee.getBirthDate().getTime() - hoy.getTime()))
-                .antiquity(antiquityFormat.format(hoy.getTime() - employee.getBirthDate().getTime()))
+                .age(convertBirthDate(employee.getBirthDate()))
+                .antiquity(convertStartDate(employee.getStartDate()))
                 .post(employee.getPost())
                 .salary(employee.getSalary()).build();
         return employeeDto;
     }
 
+    private static String convertBirthDate(Date date){
+        LocalDate today=  LocalDate.now();
+        String result;
+        LocalDate birthDate = date.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+        Period period = Period.between(birthDate,today);
+        int years = Math.abs(period.getYears());
+        int months = Math.abs(period.getMonths());
+        int days = Math.abs(period.getDays());
+        result = "years: "+ years + "- months: " + months + "- days: " + days;
+        return result;
+    }
+
+    private static String convertStartDate(Date date){
+        LocalDate today=  LocalDate.now();
+        String result;
+        LocalDate startDay = date.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+        Period period = Period.between(startDay,today);
+        int years = Math.abs(period.getYears());
+        int months = Math.abs(period.getMonths());
+        result = "years: "+ years + "- months: " + months;
+        return result;
+    }
 }

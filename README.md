@@ -13,6 +13,10 @@ mvn clean install
 
 Crear una base de datos MySQL con el nombre parameta
 
+## Run Test
+
+mvn test
+
 ## Pruebas Con PostMan 
 
 Empleado creado
