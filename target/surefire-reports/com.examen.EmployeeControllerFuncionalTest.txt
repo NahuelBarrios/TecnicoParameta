@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: com.examen.EmployeeControllerFuncionalTest
 -------------------------------------------------------------------------------
-Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 9.366 s - in com.examen.EmployeeControllerFuncionalTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 9.633 s - in com.examen.EmployeeControllerFuncionalTest
