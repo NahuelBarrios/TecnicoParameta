@@ -1,11 +1,15 @@
 package com.examen.service;
 
 import com.examen.domain.Employee;
-import com.examen.exception.EmployeeNotFoundException;
+import com.examen.exception.EmployeeRequestException;
 import com.examen.mapper.EmployeeMapper;
 import com.examen.repository.EmployeeRepository;
 import com.examen.repository.models.EmployeeModel;
+import java.time.LocalDate;
+import java.time.Period;
+import java.time.ZoneId;
 import java.util.Date;
+import org.springframework.http.HttpStatus;
 import org.springframework.transaction.annotation.Transactional;
 
 public class EmployeeService {
@@ -17,14 +21,21 @@ public class EmployeeService {
     }
 
     @Transactional
-    public Employee createEmployee(Employee employee) throws EmployeeNotFoundException{
-        Date today = new Date();
-            if((today.getYear() - employee.getBirthDate().getYear()) >=18){
+    public Employee createEmployee(Employee employee) throws EmployeeRequestException {
+        Integer ageEmployee = this.getAge(employee.getBirthDate());
+            if(ageEmployee >=18){
                 EmployeeModel employeeModel = employeeRepository.save(EmployeeMapper.mapDomainToModel(employee));
                 return EmployeeMapper.mapModelToDomain(employeeModel);
             }else {
-                throw new EmployeeNotFoundException(String.format("es menor de edad"));
+                throw new EmployeeRequestException("Empleado menor de edad", "not.found", HttpStatus.NOT_FOUND);
             }
+    }
+
+    private Integer getAge(Date date){
+        LocalDate today=  LocalDate.now();
+        LocalDate birthDate = date.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+        Period period = Period.between(birthDate,today);
+        return Math.abs(period.getYears());
     }
 
 }

@@ -23,13 +23,9 @@ Empleado creado
 
 ![](images/EmpleadoOk.png)
 
-Validación campo NotNull
+Validación campo NotNull y campo Vacio
 
-![](images/EmpleadoNotNull.png)
-
-Validación campo Vacio
-
-![](images/EmpleadoVacio.png)
+![](images/EmpleadoNotNullVoid.png)
 
 Validación de edad
 

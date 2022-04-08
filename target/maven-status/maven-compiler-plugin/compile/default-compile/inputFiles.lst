@@ -2,12 +2,13 @@ C:\Users\54115\Desktop\e\src\main\java\com\examen\controller\impl\EmployeeResour
 C:\Users\54115\Desktop\e\src\main\java\com\examen\dto\EmployeeDto.java
 C:\Users\54115\Desktop\e\src\main\java\com\examen\repository\EmployeeRepository.java
 C:\Users\54115\Desktop\e\src\main\java\com\examen\EmployeeExamApplication.java
-C:\Users\54115\Desktop\e\src\main\java\com\examen\exception\EmployeeNotFoundException.java
 C:\Users\54115\Desktop\e\src\main\java\com\examen\controller\EmployeeController.java
 C:\Users\54115\Desktop\e\src\main\java\com\examen\domain\Employee.java
+C:\Users\54115\Desktop\e\src\main\java\com\examen\exception\GlobalExceptionHandler.java
 C:\Users\54115\Desktop\e\src\main\java\com\examen\mapper\EmployeeMapper.java
+C:\Users\54115\Desktop\e\src\main\java\com\examen\exception\ApiErrorDTO.java
 C:\Users\54115\Desktop\e\src\main\java\com\examen\dto\EmployeeCreationDto.java
+C:\Users\54115\Desktop\e\src\main\java\com\examen\exception\EmployeeRequestException.java
 C:\Users\54115\Desktop\e\src\main\java\com\examen\repository\models\EmployeeModel.java
-C:\Users\54115\Desktop\e\src\main\java\com\examen\dto\ErrorDTO.java
 C:\Users\54115\Desktop\e\src\main\java\com\examen\config\AppConfig.java
 C:\Users\54115\Desktop\e\src\main\java\com\examen\service\EmployeeService.java

@@ -1,8 +1,9 @@
 com\examen\repository\models\EmployeeModel.class
 com\examen\dto\EmployeeDto$EmployeeDtoBuilder.class
+com\examen\exception\ApiErrorDTO$ApiErrorDTOBuilder.class
 com\examen\dto\EmployeeCreationDto$EmployeeCreationDtoBuilder.class
 com\examen\config\AppConfig.class
-com\examen\dto\ErrorDTO.class
+com\examen\exception\ApiErrorDTO.class
 com\examen\controller\impl\EmployeeResource.class
 com\examen\dto\EmployeeDto.class
 com\examen\service\EmployeeService.class
@@ -10,9 +11,10 @@ com\examen\repository\EmployeeRepository.class
 com\examen\controller\EmployeeController.class
 com\examen\domain\Employee.class
 com\examen\EmployeeExamApplication.class
+com\examen\exception\EmployeeRequestException.class
+com\examen\exception\ApiErrorDetailDTO.class
 com\examen\repository\models\EmployeeModel$EmployeeModelBuilder.class
 com\examen\domain\Employee$EmployeeBuilder.class
-com\examen\dto\ErrorDTO$ErrorDTOBuilder.class
+com\examen\exception\GlobalExceptionHandler.class
 com\examen\mapper\EmployeeMapper.class
 com\examen\dto\EmployeeCreationDto.class
-com\examen\exception\EmployeeNotFoundException.class
